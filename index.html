@@ -1,13 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="ms">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pahlawan Hikmah - Kuiz TV Islamik Multiplayer</title>
+    <title>Pahlawan Hikmah - Kuiz TV Islamik Multiplayer (Mod Buzz-In)</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Canvas Confetti Library for victory celebrations -->
+    <!-- Canvas Confetti Library -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <!-- Google Fonts: Fredoka & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,7 +28,7 @@
                         tvNavy: '#0F172A',
                     },
                     animation: {
-                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'pulse-slow': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                         'bounce-short': 'bounce 0.8s infinite',
                     }
                 }
@@ -48,7 +47,7 @@
             font-family: 'Fredoka', cursive;
         }
         .glass-panel {
-            background: rgba(15, 23, 42, 0.75);
+            background: rgba(15, 23, 42, 0.8);
             backdrop-filter: blur(16px);
             border: 2px solid rgba(255, 255, 255, 0.15);
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
@@ -61,9 +60,8 @@
             outline: 4px solid #f59e0b;
         }
         .tv-card-glow {
-            box-shadow: 0 0 25px rgba(16, 185, 129, 0.3);
+            box-shadow: 0 0 30px rgba(234, 179, 8, 0.4);
         }
-        /* Custom Scrollbar for Leaderboard */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -79,12 +77,12 @@
 <body class="min-h-screen flex flex-col justify-between text-white antialiased">
 
     <!-- Top Navigation / TV Bar -->
-    <header class="w-full px-6 py-4 bg-slate-900/80 backdrop-blur-md border-b border-slate-700/60 flex justify-between items-center z-50 sticky top-0">
+    <header class="w-full px-6 py-4 bg-slate-900/90 backdrop-blur-md border-b border-slate-700/60 flex justify-between items-center z-50 sticky top-0">
         <div class="flex items-center gap-3">
             <span class="text-3xl">🕌</span>
             <div>
                 <h1 class="text-2xl font-bold tracking-wide text-yellow-400 font-heading leading-tight">PAHLAWAN HIKMAH</h1>
-                <p class="text-xs text-emerald-400 font-semibold tracking-wider uppercase">Kuiz TV Islamik 1-4 Pemain (Umur 9 Tahun)</p>
+                <p class="text-xs text-emerald-400 font-semibold tracking-wider uppercase">Kuiz Smart TV Islamik - Mod Buzz-In Serentak</p>
             </div>
         </div>
 
@@ -103,18 +101,15 @@
 
         <!-- ================= LOBBY SCREEN ================= -->
         <section id="lobbyScreen" class="w-full max-w-5xl glass-panel rounded-3xl p-6 md:p-10 text-center relative overflow-hidden">
-            <div class="absolute -top-10 -left-10 w-40 h-40 bg-emerald-500/20 rounded-full blur-3xl"></div>
-            <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-purple-500/20 rounded-full blur-3xl"></div>
-
             <div class="relative z-10">
-                <span class="inline-block bg-emerald-500/20 text-emerald-300 font-bold px-4 py-1.5 rounded-full text-sm mb-4 border border-emerald-500/40">
-                    ⭐ Selamat Datang, Pahlawan Muda!
+                <span class="inline-block bg-yellow-500/20 text-yellow-300 font-bold px-4 py-1.5 rounded-full text-sm mb-4 border border-yellow-500/40 animate-pulse-slow">
+                    ⚡ Mod Terbaharu: Perlumbaan Buzz-In Pantas!
                 </span>
                 <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-3 font-heading tracking-wide">
                     Pilih Bilangan Pemain
                 </h2>
-                <p class="text-slate-300 max-w-xl mx-auto mb-8 text-base md:text-lg">
-                    Kumpul <strong class="text-yellow-400">Bintang Pahala</strong>, tingkatkan <strong class="text-emerald-400">Rank Agama Islam</strong>, dan jadilah <strong class="text-yellow-300">Sultan Hikmah!</strong>
+                <p class="text-slate-300 max-w-xl mx-auto mb-8 text-base">
+                    Tekan butang <strong class="text-yellow-400">BUZZER</strong> paling pantas untuk rebut giliran menjawab dan kumpul <strong class="text-emerald-400">Bintang Pahala!</strong>
                 </p>
 
                 <!-- Player Count Selection -->
@@ -142,17 +137,15 @@
                 </div>
 
                 <!-- Player Setup Forms Container -->
-                <div id="playerInputsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-                    <!-- Dynamic player input cards will be injected here -->
-                </div>
+                <div id="playerInputsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8"></div>
 
                 <!-- Action Buttons -->
                 <div class="flex flex-wrap justify-center gap-4">
                     <button onclick="startCategorySelection()" class="btn-tv bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-400 hover:to-amber-500 text-slate-950 font-heading text-2xl font-bold px-10 py-4 rounded-2xl shadow-xl flex items-center gap-3">
-                        🚀 Mula Petualangan!
+                        🚀 Mula Gelanggang!
                     </button>
                     <button onclick="showLeaderboardModal()" class="btn-tv bg-purple-700/80 hover:bg-purple-600 text-white font-heading text-lg font-bold px-6 py-4 rounded-2xl border border-purple-400/40 flex items-center gap-2">
-                        🏆 Carta Rank & Koleksi
+                        🏆 Carta Rank
                     </button>
                 </div>
             </div>
@@ -168,60 +161,49 @@
                 <h2 class="text-3xl md:text-4xl font-bold text-yellow-400 font-heading">Pilih Subjek Agama</h2>
                 <div class="w-16"></div>
             </div>
-            <p class="text-slate-300 mb-8 text-base">Semua tajuk disesuaikan mengikut sukatan pelajaran Agama Islam Darjah 3 & 4 KSSR.</p>
+            <p class="text-slate-300 mb-8 text-base">Soalan Sukatan Pelajaran Agama Islam Darjah 3 & 4 KSSR.</p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-                <!-- Category 1 -->
-                <button onclick="selectCategory('all')" class="category-card btn-tv bg-slate-800/80 hover:bg-emerald-800/80 border-2 border-emerald-500/40 p-6 rounded-2xl text-left flex items-start gap-4">
+                <button onclick="selectCategory('all')" class="btn-tv bg-slate-800/80 hover:bg-emerald-800/80 border-2 border-emerald-500/40 p-6 rounded-2xl text-left flex items-start gap-4">
                     <span class="text-5xl">🌍</span>
                     <div>
                         <h3 class="text-2xl font-bold text-emerald-300 font-heading">Campuran Semua</h3>
-                        <p class="text-xs text-slate-300 mt-1">Soal jawab rawak daripada pelbagai tajuk Agama Islam.</p>
+                        <p class="text-xs text-slate-300 mt-1">Soal jawab rawak daripada pelbagai bidang Agama Islam.</p>
                     </div>
                 </button>
-
-                <!-- Category 2 -->
-                <button onclick="selectCategory('fiqah')" class="category-card btn-tv bg-slate-800/80 hover:bg-blue-800/80 border-2 border-blue-500/40 p-6 rounded-2xl text-left flex items-start gap-4">
+                <button onclick="selectCategory('fiqah')" class="btn-tv bg-slate-800/80 hover:bg-blue-800/80 border-2 border-blue-500/40 p-6 rounded-2xl text-left flex items-start gap-4">
                     <span class="text-5xl">💧</span>
                     <div>
-                        <h3 class="text-2xl font-bold text-blue-300 font-heading">Fiqah & Wuduk</h3>
-                        <p class="text-xs text-slate-300 mt-1">Rukun wuduk, syarat solat, & amalan ibadah harian.</p>
+                        <h3 class="text-2xl font-bold text-blue-300 font-heading">Fiqah & Solat</h3>
+                        <p class="text-xs text-slate-300 mt-1">Rukun wuduk, syarat solat, & solat berjemaah.</p>
                     </div>
                 </button>
-
-                <!-- Category 3 -->
-                <button onclick="selectCategory('aqidah')" class="category-card btn-tv bg-slate-800/80 hover:bg-amber-800/80 border-2 border-amber-500/40 p-6 rounded-2xl text-left flex items-start gap-4">
+                <button onclick="selectCategory('aqidah')" class="btn-tv bg-slate-800/80 hover:bg-amber-800/80 border-2 border-amber-500/40 p-6 rounded-2xl text-left flex items-start gap-4">
                     <span class="text-5xl">☝️</span>
                     <div>
-                        <h3 class="text-2xl font-bold text-amber-300 font-heading">Aqidah & Asmaul Husna</h3>
+                        <h3 class="text-2xl font-bold text-amber-300 font-heading">Aqidah & Malaikat</h3>
                         <p class="text-xs text-slate-300 mt-1">Rukun Iman, Rukun Islam, & Sifat-sifat Allah.</p>
                     </div>
                 </button>
-
-                <!-- Category 4 -->
-                <button onclick="selectCategory('quran')" class="category-card btn-tv bg-slate-800/80 hover:bg-teal-800/80 border-2 border-teal-500/40 p-6 rounded-2xl text-left flex items-start gap-4">
+                <button onclick="selectCategory('quran')" class="btn-tv bg-slate-800/80 hover:bg-teal-800/80 border-2 border-teal-500/40 p-6 rounded-2xl text-left flex items-start gap-4">
                     <span class="text-5xl">📖</span>
                     <div>
                         <h3 class="text-2xl font-bold text-teal-300 font-heading">Al-Quran & Tajwid</h3>
-                        <p class="text-xs text-slate-300 mt-1">Surah-surah lazim Juz 30 & hukum bacaan asas.</p>
+                        <p class="text-xs text-slate-300 mt-1">Surah Lazim Juz 30, Izhar, Iqlab, & Ikhfa.</p>
                     </div>
                 </button>
-
-                <!-- Category 5 -->
-                <button onclick="selectCategory('akhlak')" class="category-card btn-tv bg-slate-800/80 hover:bg-rose-800/80 border-2 border-rose-500/40 p-6 rounded-2xl text-left flex items-start gap-4">
+                <button onclick="selectCategory('akhlak')" class="btn-tv bg-slate-800/80 hover:bg-rose-800/80 border-2 border-rose-500/40 p-6 rounded-2xl text-left flex items-start gap-4">
                     <span class="text-5xl">💖</span>
                     <div>
                         <h3 class="text-2xl font-bold text-rose-300 font-heading">Akhlak & Adab</h3>
-                        <p class="text-xs text-slate-300 mt-1">Adab ibu bapa, guru, rakan, & kebersihan diri.</p>
+                        <p class="text-xs text-slate-300 mt-1">Adab berguru, ibubapa, rakan, & kebersihan.</p>
                     </div>
                 </button>
-
-                <!-- Category 6 -->
-                <button onclick="selectCategory('sirah')" class="category-card btn-tv bg-slate-800/80 hover:bg-purple-800/80 border-2 border-purple-500/40 p-6 rounded-2xl text-left flex items-start gap-4">
+                <button onclick="selectCategory('sirah')" class="btn-tv bg-slate-800/80 hover:bg-purple-800/80 border-2 border-purple-500/40 p-6 rounded-2xl text-left flex items-start gap-4">
                     <span class="text-5xl">🏛️</span>
                     <div>
                         <h3 class="text-2xl font-bold text-purple-300 font-heading">Sirah Nabawiyah</h3>
-                        <p class="text-xs text-slate-300 mt-1">Kisah teladan Nabi Muhammad SAW & para Sahabat.</p>
+                        <p class="text-xs text-slate-300 mt-1">Kisah Rasulullah SAW & Khulafa' Ar-Rasyidin.</p>
                     </div>
                 </button>
             </div>
@@ -235,7 +217,7 @@
             <div class="glass-panel rounded-2xl p-4 flex flex-wrap justify-between items-center gap-4">
                 <div class="flex items-center gap-3">
                     <span id="currentCategoryBadge" class="bg-yellow-500 text-slate-950 px-3 py-1 rounded-lg text-sm font-bold font-heading">
-                        Fiqah & Wuduk
+                        Fiqah
                     </span>
                     <span id="questionProgressText" class="text-slate-300 text-sm font-semibold">
                         Soalan 1 / 10
@@ -245,14 +227,13 @@
                 <!-- Timer Display -->
                 <div class="flex items-center gap-2 bg-slate-900/90 px-5 py-2 rounded-xl border border-amber-500/40">
                     <span class="text-xl">⏳</span>
-                    <span id="timerText" class="text-2xl font-bold text-yellow-400 font-heading w-10 text-center">20</span>
+                    <span id="timerText" class="text-2xl font-bold text-yellow-400 font-heading w-10 text-center">15</span>
                     <span class="text-xs text-slate-400">saat</span>
                 </div>
 
-                <!-- Turn Indicator -->
-                <div id="turnIndicator" class="bg-emerald-600/30 border border-emerald-400/50 px-4 py-1.5 rounded-xl text-emerald-300 text-sm font-bold flex items-center gap-2">
-                    <span>🎮 Giliran:</span>
-                    <span id="activePlayerName" class="text-yellow-300 font-heading text-lg">Pemain 1</span>
+                <!-- Status Banner -->
+                <div id="buzzerStatusBanner" class="bg-yellow-500/20 border border-yellow-400/60 px-4 py-1.5 rounded-xl text-yellow-300 text-sm font-bold flex items-center gap-2 animate-pulse">
+                    <span>⚡ BERSEDIA: Tekan Buzz-In Pertama!</span>
                 </div>
             </div>
 
@@ -262,27 +243,25 @@
                     Kategori: Fiqah
                 </div>
                 <h2 id="questionText" class="text-2xl md:text-4xl font-extrabold text-white font-heading leading-relaxed mb-6">
-                    Maksud wuduk pada bahasa ialah bersih dan indah. Apakah hukum mengambil wuduk sebelum solat?
+                    Memuatkan soalan...
                 </h2>
 
                 <!-- Answer Options (Grid) -->
-                <div id="optionsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
-                    <!-- Dynamic Options Buttons -->
+                <div id="optionsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4 text-left pointer-events-none opacity-50">
+                    <!-- Dynamic Options -->
                 </div>
             </div>
 
-            <!-- Live Players Stats Panel -->
-            <div id="livePlayersBoard" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <!-- Player score cards will be rendered dynamically -->
-            </div>
+            <!-- Live Buzz-In Players Board -->
+            <div id="livePlayersBoard" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"></div>
 
-            <!-- TV Keyboard Controls Guide Footer -->
-            <div class="bg-slate-900/70 rounded-xl p-3 text-center border border-slate-800 text-xs text-slate-400 flex flex-wrap justify-center gap-6">
-                <span>⌨️ <strong>Kawalan Papan Kekunci TV / Keyboard:</strong></span>
-                <span>P1: <kbd class="bg-slate-800 px-1.5 py-0.5 rounded border border-slate-600 text-yellow-300">A, S, D, F</kbd></span>
-                <span>P2: <kbd class="bg-slate-800 px-1.5 py-0.5 rounded border border-slate-600 text-cyan-300">J, K, L, ;</kbd></span>
-                <span>P3: <kbd class="bg-slate-800 px-1.5 py-0.5 rounded border border-slate-600 text-pink-300">1, 2, 3, 4</kbd></span>
-                <span>P4: <kbd class="bg-slate-800 px-1.5 py-0.5 rounded border border-slate-600 text-purple-300">7, 8, 9, 0</kbd></span>
+            <!-- Keyboard Guide -->
+            <div class="bg-slate-900/70 rounded-xl p-3 text-center border border-slate-800 text-xs text-slate-300 flex flex-wrap justify-center gap-6">
+                <span>🔴 <strong>Kekunci Buzz-In Pemain:</strong></span>
+                <span>P1: <kbd class="bg-yellow-500 text-slate-950 font-bold px-2 py-0.5 rounded">SPACE / A</kbd></span>
+                <span>P2: <kbd class="bg-cyan-500 text-slate-950 font-bold px-2 py-0.5 rounded">ENTER / J</kbd></span>
+                <span>P3: <kbd class="bg-pink-500 text-slate-950 font-bold px-2 py-0.5 rounded">NUM 0 / 1</kbd></span>
+                <span>P4: <kbd class="bg-purple-500 text-slate-950 font-bold px-2 py-0.5 rounded">7</kbd></span>
             </div>
         </section>
 
@@ -291,14 +270,10 @@
         <section id="resultsScreen" class="hidden w-full max-w-4xl glass-panel rounded-3xl p-6 md:p-10 text-center relative">
             <div class="text-5xl mb-2">🎉🏆🎉</div>
             <h2 class="text-4xl md:text-5xl font-extrabold text-yellow-400 font-heading mb-2">Tahniah Pahlawan!</h2>
-            <p class="text-slate-300 text-base mb-8">Pertandingan telah tamat! Berikut adalah pencapaian Bintang Pahala anda.</p>
+            <p class="text-slate-300 text-base mb-8">Keputusan Rasmi Pertandingan Pahlawan Hikmah.</p>
 
-            <!-- Final Standings Podium -->
-            <div id="finalPodium" class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 items-end">
-                <!-- Dynamic Podium Cards -->
-            </div>
+            <div id="finalPodium" class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 items-end"></div>
 
-            <!-- Actions -->
             <div class="flex flex-wrap justify-center gap-4">
                 <button onclick="startCategorySelection()" class="btn-tv bg-emerald-600 hover:bg-emerald-500 text-white font-heading text-xl font-bold px-8 py-3.5 rounded-2xl shadow-lg flex items-center gap-2">
                     🔄 Main Lagi
@@ -314,13 +289,12 @@
 
     </main>
 
-    <!-- FOOTER -->
     <footer class="w-full text-center py-3 text-xs text-slate-500 bg-slate-950/60 border-t border-slate-900">
-        Pahlawan Hikmah &copy; 2026 - Aplikasi Edukasi Agama Islam Anak Smart TV
+        Pahlawan Hikmah &copy; 2026 - Aplikasi Edukasi Agama Islam Smart TV
     </footer>
 
 
-    <!-- ================= MODAL LEADERBOARD ================= -->
+    <!-- MODAL LEADERBOARD -->
     <div id="leaderboardModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 z-50 hidden">
         <div class="glass-panel w-full max-w-3xl rounded-3xl p-6 md:p-8 flex flex-col max-h-[90vh]">
             <div class="flex justify-between items-center mb-6 border-b border-slate-700 pb-4">
@@ -334,9 +308,506 @@
                 <button onclick="closeLeaderboardModal()" class="btn-tv text-slate-400 hover:text-white text-2xl font-bold p-2">✕</button>
             </div>
 
-            <!-- Ranks Info Bar -->
             <div class="bg-slate-900/80 p-3 rounded-2xl mb-4 text-xs flex flex-wrap justify-around gap-2 text-center border border-slate-800">
                 <span>🟢 <strong class="text-emerald-400">Penuntut Ilmu</strong> (0-100⭐)</span>
                 <span>🟡 <strong class="text-yellow-400">Pencari Hikmah</strong> (101-300⭐)</span>
                 <span>🟠 <strong class="text-orange-400">Bintang Kehormatan</strong> (301-600⭐)</span>
-             
+                <span>👑 <strong class="text-purple-300">Sultan Hikmah</strong> (600+⭐)</span>
+            </div>
+
+            <div class="overflow-y-auto flex-grow pr-2 mb-6">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="border-b border-slate-700 text-slate-400 text-xs uppercase">
+                            <th class="py-3 px-2">Kedudukan</th>
+                            <th class="py-3 px-2">Pahlawan</th>
+                            <th class="py-3 px-2">Bintang ⭐</th>
+                            <th class="py-3 px-2">Gelaran Rank</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leaderboardTableBody" class="divide-y divide-slate-800/60 text-sm"></tbody>
+                </table>
+            </div>
+
+            <div class="flex justify-between items-center pt-2">
+                <button onclick="resetLeaderboardData()" class="text-xs text-rose-400 hover:text-rose-300 underline">
+                    Padam Rekod Tempatan
+                </button>
+                <button onclick="closeLeaderboardModal()" class="btn-tv bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-6 py-2.5 rounded-xl text-sm">
+                    Tutup
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // State Management
+        let audioEnabled = true;
+        let selectedPlayerCount = 1;
+        let players = [];
+        let currentQuestionIndex = 0;
+        let totalQuestions = 10;
+        let activeQuestions = [];
+        let timerInterval = null;
+        let timeLeft = 15;
+        let buzzedPlayerIndex = -1; // -1 means no one buzzed yet
+        let isAnsweringLocked = false;
+
+        const AVATARS = ['🦸‍♂️', '🧕', '🤴', '🥷', '🦁', '🌟', '🦅', '🐬'];
+        const PLAYER_COLORS = [
+            { bg: 'bg-yellow-500/20', border: 'border-yellow-500', text: 'text-yellow-400', buzzKeys: [' ', 'A', 'a'] },
+            { bg: 'bg-cyan-500/20', border: 'border-cyan-500', text: 'text-cyan-400', buzzKeys: ['Enter', 'J', 'j'] },
+            { bg: 'bg-pink-500/20', border: 'border-pink-500', text: 'text-pink-400', buzzKeys: ['0', '1'] },
+            { bg: 'bg-purple-500/20', border: 'border-purple-500', text: 'text-purple-400', buzzKeys: ['7'] },
+        ];
+
+        // Extended KSSR Primary 3 & 4 Question Bank
+        const QUESTION_BANK = [
+            // Fiqah & Solat
+            { category: 'fiqah', label: 'Fiqah', question: 'Apakah hukum mengambil wuduk sebelum menunaikan solat fardhu?', options: ['Wajib', 'Sunat', 'Harus', 'Makruh'], answer: 0 },
+            { category: 'fiqah', label: 'Fiqah', question: 'Manakah antara berikut merupakan RUKUN Wuduk?', options: ['Membaca Bismillah', 'Membasuh Muka', 'Berkumur-kumur', 'Membasuh telinga'], answer: 1 },
+            { category: 'fiqah', label: 'Fiqah', question: 'Solat yang ditunaikan secara bersama-sama mengandungi seorang Imam dinamakan...', options: ['Solat Jama', 'Solat Berjemaah', 'Solat Qasar', 'Solat Sunat'], answer: 1 },
+            { category: 'fiqah', label: 'Fiqah', question: 'Berapakah bilangan rukun solat yang wajib dipatuhi?', options: ['13 Rukun', '10 Rukun', '5 Rukun', '6 Rukun'], answer: 0 },
+            { category: 'fiqah', label: 'Fiqah', question: 'Apakah syarat utama sah solat bagi seorang Muslim?', options: ['Makan sebelum solat', 'Suci daripada hadas kecil & besar', 'Tidur seketika', 'Memakai baju baharu'], answer: 1 },
+
+            // Aqidah & Malaikat
+            { category: 'aqidah', label: 'Aqidah', question: 'Rukun Iman yang pertama ialah beriman kepada...', options: ['Malaikat', 'Kitab', 'Allah SWT', 'Hari Kiamat'], answer: 2 },
+            { category: 'aqidah', label: 'Aqidah', question: 'Apakah tugas utama Malaikat Mikail AS?', options: ['Mencabut nyawa', 'Menyampaikan wahyu', 'Menurunkan rezeki & hujan', 'Meniup sangkakala'], answer: 2 },
+            { category: 'aqidah', label: 'Aqidah', question: 'Apakah maksud Asmaul Husna "Al-Ahad"?', options: ['Maha Pengasih', 'Maha Esa (Tunggal)', 'Maha Mendengar', 'Maha Melihat'], answer: 1 },
+            { category: 'aqidah', label: 'Aqidah', question: 'Berapakah bilangan Rukun Islam?', options: ['5 Rukun', '6 Rukun', '7 Rukun', '4 Rukun'], answer: 0 },
+            { category: 'aqidah', label: 'Aqidah', question: 'Malaikat yang bertugas mencatat amalan kebaikan manusia ialah...', options: ['Malaikat Raqib', 'Malaikat Atid', 'Malaikat Munkar', 'Malaikat Nakir'], answer: 0 },
+
+            // Al-Quran & Tajwid
+            { category: 'quran', label: 'Al-Quran', question: 'Surah Al-Fatihah dikenali sebagai Ummul Kitab yang bermaksud...', options: ['Ibu Al-Quran', 'Penutup Al-Quran', 'Cahaya Al-Quran', 'Perisai Al-Quran'], answer: 0 },
+            { category: 'quran', label: 'Al-Quran', question: 'Apakah hukum bacaan Nun Sakinah (نْ) apabila bertemu huruf Ba (ب)?', options: ['Izhar Halqi', 'Iqlab', 'Idgham', 'Ikhfa'], answer: 1 },
+            { category: 'quran', label: 'Al-Quran', question: 'Surah Al-Ikhlas menegaskan tentang ajaran...', options: ['Membayar Zakat', 'Tauhid dan Keesaan Allah', 'Kisah Nabi Musa', 'Hukum Puasa'], answer: 1 },
+            { category: 'quran', label: 'Al-Quran', question: 'Berapakah bilangan surah dalam Al-Quran?', options: ['110 Surah', '114 Surah', '120 Surah', '30 Surah'], answer: 1 },
+            { category: 'quran', label: 'Al-Quran', question: 'Membaca Al-Quran dengan jelas tanpa dengung apabila Nun Sakinah bertemu huruf Alif dinamakan...', options: ['Izhar Halqi', 'Iqlab', 'Ikhfa Haqiqi', 'Idgham Maal Ghunnah'], answer: 0 },
+
+            // Akhlak & Adab
+            { category: 'akhlak', label: 'Akhlak', question: 'Berikut adalah adab terhadap guru KECUALI:', options: ['Mendengar arahan guru', 'Memberi salam', 'Mencelah cakap guru', 'Bercakap dengan sopan'], answer: 2 },
+            { category: 'akhlak', label: 'Akhlak', question: 'Apakah ucapan apabila menerima nikmat atau kebaikan daripada Allah?', options: ['Subhanallah', 'Alhamdulillah', 'Astaghfirullah', 'Innalillahi'], answer: 1 },
+            { category: 'akhlak', label: 'Akhlak', question: 'Sifat jujur dan sentiasa bercakap benar dinamakan...', options: ['Siddiq', 'Amanah', 'Tabligh', 'Fatanah'], answer: 0 },
+            { category: 'akhlak', label: 'Akhlak', question: 'Apakah adab masuk ke dalam masjid yang betul?', options: ['Langkah kaki kiri dahulu', 'Langkah kaki kanan dahulu & berselawat', 'Berlari-lari', 'Bercakap lantang'], answer: 1 },
+
+            // Sirah Nabawiyah
+            { category: 'sirah', label: 'Sirah', question: 'Nabi Muhammad SAW dilahirkan di kota...', options: ['Madinah Al-Munawwarah', 'Makkah Al-Mukarramah', 'Taif', 'Yerusalem'], answer: 1 },
+            { category: 'sirah', label: 'Sirah', question: 'Apakah gelaran Nabi Muhammad SAW kerana kejujuran baginda?', options: ['Al-Amin', 'Al-Farooq', 'As-Siddiq', 'Saifullah'], answer: 0 },
+            { category: 'sirah', label: 'Sirah', question: 'Siapakah nama ibu kandung Nabi Muhammad SAW?', options: ['Siti Khadijah', 'Siti Aminah', 'Siti Aisyah', 'Siti Fatimah'], answer: 1 },
+            { category: 'sirah', label: 'Sirah', question: 'Sahabat Nabi yang menjadi Khalifah Pertama Islam ialah...', options: ['Saidina Umar bin Khattab', 'Saidina Abu Bakar As-Siddiq', 'Saidina Uthman bin Affan', 'Saidina Ali bin Abi Talib'], answer: 1 }
+        ];
+
+        // Synthesizer Audio
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+        function playSound(type) {
+            if (!audioEnabled) return;
+            try {
+                const now = audioCtx.currentTime;
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                if (type === 'buzzer') {
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(600, now);
+                    osc.frequency.exponentialRampToValueAtTime(300, now + 0.2);
+                    gain.gain.setValueAtTime(0.4, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.2);
+                    osc.start(now);
+                    osc.stop(now + 0.2);
+                } else if (type === 'correct') {
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(523.25, now);
+                    osc.frequency.exponentialRampToValueAtTime(880, now + 0.3);
+                    gain.gain.setValueAtTime(0.3, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.3);
+                    osc.start(now);
+                    osc.stop(now + 0.3);
+                } else if (type === 'wrong') {
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(220, now);
+                    osc.frequency.setValueAtTime(130, now + 0.15);
+                    gain.gain.setValueAtTime(0.3, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.3);
+                    osc.start(now);
+                    osc.stop(now + 0.3);
+                } else if (type === 'click') {
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(400, now);
+                    gain.gain.setValueAtTime(0.1, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.05);
+                    osc.start(now);
+                    osc.stop(now + 0.05);
+                }
+            } catch (e) {}
+        }
+
+        function toggleAudio() {
+            audioEnabled = !audioEnabled;
+            document.getElementById('audioIcon').innerText = audioEnabled ? '🔊' : '🔇';
+        }
+
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(() => {});
+            } else if (document.exitFullscreen) {
+                document.exitFullscreen();
+            }
+        }
+
+        function showScreen(screenId) {
+            ['lobbyScreen', 'categoryScreen', 'gameScreen', 'resultsScreen'].forEach(id => {
+                document.getElementById(id).classList.add('hidden');
+            });
+            document.getElementById(screenId).classList.remove('hidden');
+        }
+
+        function selectPlayerCount(count) {
+            playSound('click');
+            selectedPlayerCount = count;
+
+            for (let i = 1; i <= 4; i++) {
+                const btn = document.getElementById(`btnP${i}`);
+                if (i === count) {
+                    btn.classList.add('ring-4', 'ring-yellow-400', 'bg-emerald-700/80');
+                } else {
+                    btn.classList.remove('ring-4', 'ring-yellow-400', 'bg-emerald-700/80');
+                }
+            }
+
+            const container = document.getElementById('playerInputsContainer');
+            container.innerHTML = '';
+
+            for (let i = 0; i < count; i++) {
+                const color = PLAYER_COLORS[i];
+                container.innerHTML += `
+                    <div class="glass-panel p-4 rounded-2xl border ${color.border} flex flex-col gap-2 text-left">
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold ${color.text} text-sm font-heading">Pemain ${i + 1}</span>
+                            <span class="text-2xl">${AVATARS[i % AVATARS.length]}</span>
+                        </div>
+                        <input type="text" id="pNameInput_${i}" value="Pahlawan ${i + 1}" 
+                            class="w-full bg-slate-900/90 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-yellow-400 font-semibold"
+                            maxlength="12">
+                        <div class="text-[10px] text-slate-400 flex justify-between items-center mt-1">
+                            <span>Kekunci Buzz:</span>
+                            <span class="bg-yellow-500 text-slate-950 px-1.5 py-0.5 rounded font-extrabold">${color.buzzKeys[0].toUpperCase()}</span>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        function startCategorySelection() {
+            playSound('click');
+            players = [];
+            for (let i = 0; i < selectedPlayerCount; i++) {
+                const input = document.getElementById(`pNameInput_${i}`);
+                const name = input ? (input.value.trim() || `Pahlawan ${i + 1}`) : `Pahlawan ${i + 1}`;
+                players.push({
+                    id: i,
+                    name: name,
+                    avatar: AVATARS[i % AVATARS.length],
+                    score: 0,
+                    correctCount: 0
+                });
+            }
+            showScreen('categoryScreen');
+        }
+
+        function selectCategory(cat) {
+            playSound('click');
+            let pool = (cat === 'all') ? QUESTION_BANK : QUESTION_BANK.filter(q => q.category === cat);
+            if (pool.length < totalQuestions) pool = [...pool, ...QUESTION_BANK];
+
+            activeQuestions = shuffleArray([...pool]).slice(0, totalQuestions);
+            currentQuestionIndex = 0;
+
+            showScreen('gameScreen');
+            renderQuestion();
+            setupGlobalInputListeners();
+        }
+
+        function renderQuestion() {
+            if (currentQuestionIndex >= activeQuestions.length) {
+                endGame();
+                return;
+            }
+
+            buzzedPlayerIndex = -1;
+            isAnsweringLocked = false;
+            const q = activeQuestions[currentQuestionIndex];
+
+            document.getElementById('questionProgressText').innerText = `Soalan ${currentQuestionIndex + 1} / ${activeQuestions.length}`;
+            document.getElementById('questionCategoryTag').innerText = `Kategori: ${q.label}`;
+            document.getElementById('questionText').innerText = q.question;
+
+            // Lock options grid until someone buzzes
+            const grid = document.getElementById('optionsGrid');
+            grid.classList.add('pointer-events-none', 'opacity-50');
+            grid.innerHTML = '';
+
+            q.options.forEach((opt, idx) => {
+                grid.innerHTML += `
+                    <button onclick="submitAnswer(${idx})" id="optBtn_${idx}" 
+                        class="btn-tv bg-slate-800/90 border-2 border-slate-700 p-4 rounded-2xl flex items-center justify-between text-left group">
+                        <span class="text-base md:text-lg font-bold text-slate-100 group-hover:text-yellow-300">
+                            ${opt}
+                        </span>
+                        <span class="bg-slate-900 text-slate-400 font-mono text-xs font-bold px-2.5 py-1 rounded-lg">
+                            ${idx + 1}
+                        </span>
+                    </button>
+                `;
+            });
+
+            updateBuzzerBanner('⚡ BERSEDIA: Tekan Butang Buzz-In Pertama!', 'yellow');
+            renderLiveBoard();
+            resetTimer(15);
+        }
+
+        function updateBuzzerBanner(text, color) {
+            const banner = document.getElementById('buzzerStatusBanner');
+            banner.innerText = text;
+            if (color === 'emerald') {
+                banner.className = "bg-emerald-500/20 border border-emerald-400 px-4 py-1.5 rounded-xl text-emerald-300 text-sm font-bold flex items-center gap-2 animate-bounce";
+            } else {
+                banner.className = "bg-yellow-500/20 border border-yellow-400/60 px-4 py-1.5 rounded-xl text-yellow-300 text-sm font-bold flex items-center gap-2 animate-pulse";
+            }
+        }
+
+        function triggerPlayerBuzz(playerIdx) {
+            if (buzzedPlayerIndex !== -1 || isAnsweringLocked) return;
+
+            buzzedPlayerIndex = playerIdx;
+            playSound('buzzer');
+
+            const p = players[playerIdx];
+            updateBuzzerBanner(`🛑 BUZZ-IN! Giliran Menjawab: ${p.avatar} ${p.name}`, 'emerald');
+
+            // Unlock answer grid
+            const grid = document.getElementById('optionsGrid');
+            grid.classList.remove('pointer-events-none', 'opacity-50');
+
+            renderLiveBoard();
+            resetTimer(7); // Give 7 seconds to select an answer after buzzing
+        }
+
+        function submitAnswer(optionIndex) {
+            if (isAnsweringLocked || buzzedPlayerIndex === -1) return;
+            isAnsweringLocked = true;
+            clearInterval(timerInterval);
+
+            const q = activeQuestions[currentQuestionIndex];
+            const isCorrect = (optionIndex === q.answer);
+            const currPlayer = players[buzzedPlayerIndex];
+
+            // Highlight Option Buttons
+            q.options.forEach((_, idx) => {
+                const btn = document.getElementById(`optBtn_${idx}`);
+                if (btn) {
+                    if (idx === q.answer) {
+                        btn.className = "btn-tv bg-emerald-600 border-2 border-emerald-300 p-4 rounded-2xl flex items-center justify-between text-left text-white";
+                    } else if (idx === optionIndex && !isCorrect) {
+                        btn.className = "btn-tv bg-rose-600 border-2 border-rose-400 p-4 rounded-2xl flex items-center justify-between text-left text-white";
+                    }
+                }
+            });
+
+            if (isCorrect) {
+                playSound('correct');
+                const points = 10 + Math.floor(timeLeft);
+                currPlayer.score += points;
+                currPlayer.correctCount++;
+            } else {
+                playSound('wrong');
+                currPlayer.score = Math.max(0, currPlayer.score - 5); // Deduction for wrong buzz
+            }
+
+            renderLiveBoard();
+
+            setTimeout(() => {
+                currentQuestionIndex++;
+                renderQuestion();
+            }, 1800);
+        }
+
+        function resetTimer(seconds) {
+            clearInterval(timerInterval);
+            timeLeft = seconds;
+            document.getElementById('timerText').innerText = timeLeft;
+
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timerText').innerText = timeLeft;
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    handleTimeout();
+                }
+            }, 1000);
+        }
+
+        function handleTimeout() {
+            if (isAnsweringLocked) return;
+            isAnsweringLocked = true;
+            playSound('wrong');
+
+            const q = activeQuestions[currentQuestionIndex];
+            const correctBtn = document.getElementById(`optBtn_${q.answer}`);
+            if (correctBtn) {
+                correctBtn.className = "btn-tv bg-emerald-600 border-2 border-emerald-300 p-4 rounded-2xl flex items-center justify-between text-left text-white";
+            }
+
+            setTimeout(() => {
+                currentQuestionIndex++;
+                renderQuestion();
+            }, 1800);
+        }
+
+        function renderLiveBoard() {
+            const board = document.getElementById('livePlayersBoard');
+            board.innerHTML = '';
+
+            players.forEach((p, idx) => {
+                const isBuzzed = idx === buzzedPlayerIndex;
+                const color = PLAYER_COLORS[idx];
+
+                board.innerHTML += `
+                    <div class="glass-panel p-3.5 rounded-2xl border ${isBuzzed ? 'border-yellow-400 bg-yellow-500/20 tv-card-glow' : 'border-slate-800'} flex items-center justify-between">
+                        <div class="flex items-center gap-2.5">
+                            <span class="text-2xl">${p.avatar}</span>
+                            <div>
+                                <h4 class="font-bold text-sm text-white font-heading">${p.name}</h4>
+                                <span class="text-[11px] ${color.text} font-semibold">Bintang: ${p.score} ⭐</span>
+                            </div>
+                        </div>
+                        ${isBuzzed ? '<span class="text-xs bg-yellow-400 text-slate-950 font-extrabold px-2 py-0.5 rounded-full animate-bounce">MENJAWAB</span>' : ''}
+                    </div>
+                `;
+            });
+        }
+
+        function endGame() {
+            clearInterval(timerInterval);
+            playSound('correct');
+            showScreen('resultsScreen');
+
+            if (typeof confetti === 'function') {
+                confetti({ particleCount: 120, spread: 70, origin: { y: 0.6 } });
+            }
+
+            saveToLeaderboard(players);
+
+            const sorted = [...players].sort((a, b) => b.score - a.score);
+            const podium = document.getElementById('finalPodium');
+            podium.innerHTML = '';
+
+            sorted.forEach((p, rank) => {
+                const badge = rank === 0 ? '👑 Johan' : rank === 1 ? '🥈 Naib Johan' : '🥉 Tempat Ke-3';
+                podium.innerHTML += `
+                    <div class="glass-panel p-6 rounded-3xl border-2 border-yellow-500/40 text-center flex flex-col items-center gap-2">
+                        <span class="text-xs font-extrabold px-3 py-1 rounded-full bg-slate-900 text-yellow-300">${badge}</span>
+                        <span class="text-5xl my-1">${p.avatar}</span>
+                        <h3 class="text-2xl font-bold font-heading text-white">${p.name}</h3>
+                        <div class="text-3xl font-extrabold text-yellow-400 font-heading">${p.score} ⭐</div>
+                        <span class="text-xs text-emerald-400 font-semibold">Rank: ${getRankTitle(p.score)}</span>
+                    </div>
+                `;
+            });
+        }
+
+        function getRankTitle(stars) {
+            if (stars >= 600) return '👑 Sultan Hikmah';
+            if (stars >= 301) return '🟠 Bintang Kehormatan';
+            if (stars >= 101) return '🟡 Pencari Hikmah';
+            return '🟢 Penuntut Ilmu';
+        }
+
+        function saveToLeaderboard(currentPlayers) {
+            let data = JSON.parse(localStorage.getItem('pahlawan_hikmah_ranks') || '{}');
+            currentPlayers.forEach(p => {
+                const key = p.name.trim().toLowerCase();
+                if (!data[key]) data[key] = { name: p.name, stars: 0 };
+                data[key].stars += p.score;
+            });
+            localStorage.setItem('pahlawan_hikmah_ranks', JSON.stringify(data));
+        }
+
+        function loadLeaderboard() {
+            const data = JSON.parse(localStorage.getItem('pahlawan_hikmah_ranks') || '{}');
+            const sortedList = Object.values(data).sort((a, b) => b.stars - a.stars);
+            const tbody = document.getElementById('leaderboardTableBody');
+            tbody.innerHTML = '';
+
+            sortedList.forEach((item, index) => {
+                tbody.innerHTML += `
+                    <tr class="hover:bg-slate-800/40">
+                        <td class="py-3 px-2 font-bold text-yellow-400">#${index + 1}</td>
+                        <td class="py-3 px-2 font-semibold text-white">${item.name}</td>
+                        <td class="py-3 px-2 font-bold text-yellow-300">${item.stars} ⭐</td>
+                        <td class="py-3 px-2 text-xs font-semibold text-emerald-400">${getRankTitle(item.stars)}</td>
+                    </tr>
+                `;
+            });
+        }
+
+        function showLeaderboardModal() {
+            playSound('click');
+            loadLeaderboard();
+            document.getElementById('leaderboardModal').classList.remove('hidden');
+        }
+
+        function closeLeaderboardModal() {
+            playSound('click');
+            document.getElementById('leaderboardModal').classList.add('hidden');
+        }
+
+        function resetLeaderboardData() {
+            if (confirm('Padam semua rekod carta markah di TV ini?')) {
+                localStorage.removeItem('pahlawan_hikmah_ranks');
+                loadLeaderboard();
+            }
+        }
+
+        function setupGlobalInputListeners() {
+            document.addEventListener('keydown', (e) => {
+                if (document.getElementById('gameScreen').classList.contains('hidden')) return;
+
+                const key = e.key;
+
+                // 1. Check Buzz-In Keys first
+                if (buzzedPlayerIndex === -1) {
+                    players.forEach((_, idx) => {
+                        if (PLAYER_COLORS[idx].buzzKeys.includes(key)) {
+                            triggerPlayerBuzz(idx);
+                        }
+                    });
+                    return;
+                }
+
+                // 2. If buzzed, allow selection using number keys 1-4
+                if (['1', '2', '3', '4'].includes(key)) {
+                    submitAnswer(parseInt(key) - 1);
+                }
+            });
+        }
+
+        function shuffleArray(arr) {
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            selectPlayerCount(1);
+            loadLeaderboard();
+        });
+    </script>
+</body>
+</html>
